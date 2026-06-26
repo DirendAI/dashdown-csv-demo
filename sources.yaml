@@ -1,0 +1,7 @@
+# Data connectors. `main` runs SQL on an embedded DuckDB over every .csv in
+# data/ — each file becomes a view named after it (customers.csv -> customers).
+# The CSVs are large (~620 MB total) and are fetched at build time, not committed
+# (see scripts/fetch_data.py and .gitignore).
+main:
+  type: csv
+  directory: data

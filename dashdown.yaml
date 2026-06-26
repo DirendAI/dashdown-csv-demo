@@ -1,0 +1,28 @@
+title: Datablist Explorer
+
+branding:
+  logo: assets/logo.svg
+  # Chart series palette — indigo, emerald, amber, rose, sky, violet, teal.
+  palette: ["#6366f1", "#10b981", "#f59e0b", "#f43f5e", "#0ea5e9", "#8b5cf6", "#14b8a6"]
+
+# Project-wide number/date defaults; a component's own format= still wins.
+format:
+  locale: en-US
+  currency: USD
+  date_format: MMM D, YYYY
+
+# LLM gateway for the <Ask /> component. The key is read from the environment,
+# so it stays out of the repo — set MISTRAL_API_KEY locally or as a CI secret.
+llm:
+  provider: mistral
+  api_key: ${MISTRAL_API_KEY}
+
+# Full-text search box in the header (also exposed via <SiteSearch />).
+search:
+  enabled: true
+  placeholder: "Search the dashboard…"
+  max_results: 8
+
+sidebar:
+  collapsed: false
+  toggle: true

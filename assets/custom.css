@@ -1,0 +1,59 @@
+/* assets/custom.css — auto-linked LAST, so these rules win by order.
+   A refined indigo/violet reskin with a gradient header and softer cards. */
+
+/* 1) Design tokens — a touch more air and rounder cards. */
+:root {
+  --dashdown-radius-card: 0.9rem;
+  --dashdown-radius-control: 0.5rem;
+  --dashdown-grid-gap: 1.1rem;
+  --dashdown-space-section: 1.75rem;
+  --sidebar-width: 280px;
+}
+
+/* 2) Brand colours — re-pin DaisyUI's oklch vars per theme (indigo accent). */
+[data-theme="light"] {
+  --p: 54% 0.21 277;        /* indigo-600 accent */
+  --pc: 100% 0 0;           /* text on the accent */
+  --b2: 98.2% 0.004 277;    /* page background, faint indigo tint */
+  --b3: 92% 0.012 277;      /* hairline borders */
+}
+[data-theme="dark"] {
+  --p: 72% 0.16 277;        /* lighter indigo for dark backgrounds */
+  --b1: 22% 0.02 277;       /* raised surfaces */
+  --b2: 17% 0.018 277;      /* page background */
+  --b3: 30% 0.02 277;       /* borders */
+}
+
+/* 3) Chrome — gradient header, bold brand, accented active nav item. */
+.dashdown-header {
+  background: linear-gradient(90deg, oklch(var(--b1)) 0%, oklch(var(--b2)) 100%);
+  border-bottom: 1px solid oklch(var(--b3));
+  backdrop-filter: saturate(1.1);
+}
+.dashdown-brand-title {
+  letter-spacing: -0.02em;
+  font-weight: 800;
+  background: linear-gradient(90deg, oklch(var(--p)), oklch(72% 0.18 320));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.dashdown-sidenav-link[aria-current="page"] {
+  box-shadow: inset 3px 0 0 0 oklch(var(--p));
+  font-weight: 600;
+}
+
+/* Widget cards — soft shadow + hairline so KPIs and charts read as tiles. */
+.dashdown-chart,
+.dashdown-table {
+  border: 1px solid oklch(var(--b3));
+  box-shadow: 0 1px 2px oklch(0% 0 0 / 0.04), 0 1px 8px oklch(0% 0 0 / 0.03);
+}
+
+/* 4) Prose — underlined section rules and tidy links. */
+.dashdown-prose h2 {
+  border-bottom: 1px solid oklch(var(--b3));
+  padding-bottom: 0.3rem;
+  letter-spacing: -0.01em;
+}
+.dashdown-prose a { text-underline-offset: 2px; }

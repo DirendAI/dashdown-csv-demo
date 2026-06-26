@@ -1,0 +1,17 @@
+# Dashdown build artifacts
+.dist/
+.pdf/
+.shots/
+dist/
+
+# Large sample datasets — fetched at build time by scripts/fetch_data.py, never
+# committed. The 2M-row customers CSV alone is ~333 MB, over GitHub's 100 MB
+# per-file limit, so the data lives outside git and is rebuilt on demand.
+data/*.csv
+data/*.download
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
