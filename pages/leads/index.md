@@ -78,4 +78,4 @@ LIMIT 200
 
 ## Drill down by source
 
-<Table data={leads.by_source} title="Leads by source" row_link="/leads/source/{source}" format="leads=number, closed_won=number" page-size=20 />
+<Table data={leads.by_source} title="Leads by source" row_link="/leads/{source}" format="leads=number, closed_won=number" page-size=20 />

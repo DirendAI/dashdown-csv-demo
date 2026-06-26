@@ -55,4 +55,4 @@ LIMIT 200
 
 Click an industry for its founding trend, employee profile and top countries. (Industries whose name contains a `/` are omitted here — a slash can't be a single URL segment.)
 
-<Table data={organizations.by_industry} title="Organizations by industry" row_link="/organizations/industry/{industry}" format="organizations=number, avg_employees=number" page-size=15 />
+<Table data={organizations.by_industry} title="Organizations by industry" row_link="/organizations/{industry}" format="organizations=number, avg_employees=number" page-size=15 />

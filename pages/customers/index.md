@@ -60,4 +60,4 @@ LIMIT 200
 
 Click any country to open its own page — sign-up trend, top cities and top companies for that market.
 
-<Table data={customers.by_country} title="Customers by country" row_link="/customers/country/{country}" format="customers=number, cities=number, companies=number" page-size=15 />
+<Table data={customers.by_country} title="Customers by country" row_link="/customers/{country}" format="customers=number, cities=number, companies=number" page-size=15 />

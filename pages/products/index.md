@@ -63,4 +63,4 @@ LIMIT 200
 
 ## Drill down by category
 
-<Table data={products.by_category} title="Products by category" row_link="/products/category/{category}" format="products=number, avg_price=currency, total_stock=number" page-size=15 />
+<Table data={products.by_category} title="Products by category" row_link="/products/{category}" format="products=number, avg_price=currency, total_stock=number" page-size=15 />
