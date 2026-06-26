@@ -18,7 +18,11 @@ icon: "👥"
 
 ## Sign-ups over time
 
-<LineChart data={customers.signups_by_month} x="month" y="signups" title="Customer sign-ups per month" date_format="MMM YYYY" format="number" />
+<LineChart data={customers.signups_by_month} x="month" y="signups" title="Customer sign-ups per month" format="number" />
+
+Daily sign-ups as a GitHub-style calendar — each cell is one of ~880 days, shaded by volume.
+
+<CalendarHeatmap data={customers.signups_by_day} date="day" value="signups" title="Daily sign-ups" />
 
 ## Where customers are
 

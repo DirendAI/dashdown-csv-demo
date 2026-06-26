@@ -1,27 +1,36 @@
 # Datablist Explorer — a Dashdown + DuckDB demo
 
-An interactive analytics dashboard built with [**Dashdown**](https://github.com/) over the
-[Datablist sample CSV files](https://github.com/datablist/sample-csv-files). It loads the
-**largest** sample files — **2,000,000 customers (333 MB)**, **1,000,000 organizations**, and
-**1,000,000 products** — and queries them live with an embedded **DuckDB**, so you can see how
-fast columnar SQL chews through hundreds of megabytes of raw CSV.
+### ▶ Live demo: **https://direndai.github.io/dashdown-csv-demo/**
 
-> **4,000,000 rows. No database server. Aggregations in well under a second.**
+An interactive analytics dashboard built with **Dashdown** over the
+[Datablist sample CSV files](https://github.com/datablist/sample-csv-files). It loads the
+**largest** sample files — **2,000,000 customers (333 MB)**, **1,000,000 organizations**,
+**1,000,000 products** — plus a **100,000-row leads** set, and queries them live with an
+embedded **DuckDB**, so you can see how fast columnar SQL chews through hundreds of megabytes
+of raw CSV.
+
+> **4.1 million rows. No database server. Aggregations in well under a second.**
+
+![Overview dashboard](docs/screenshots/overview.png)
 
 ## What's in it
 
 | Page | Highlights |
 | ---- | ---------- |
 | **Overview** (`/`) | KPI counters, sign-up trend, a category treemap, top industries, full-text `<SiteSearch>`, and an AI `<Ask>` read-out |
-| **Customers** (`/customers`) | 2 M rows — sign-ups over time, top countries, a filterable record table, and a **drill-down by country** |
+| **Customers** (`/customers`) | 2 M rows — sign-ups over time, a GitHub-style **calendar heatmap**, top countries, a filterable record table, and a **drill-down by country** |
 | **Organizations** (`/organizations`) | founding-year trend, top industries, filterable table, **drill-down by industry** |
 | **Products** (`/products`) | category treemap, price histogram, availability mix, average price by category, **drill-down by category** |
+| **Leads** (`/leads`) | a pipeline **funnel**, a Source × Stage **heatmap**, a heatmap-shaded **table** (from a DuckDB `PIVOT`), an interactive **pivot table**, and a **drill-down by source** |
 | **DuckDB Performance** (`/performance`) | the row counts and measured timings behind the "how fast is it?" story |
-| Detail pages | one template each renders a focused page for every country / industry / category (`pages/**/[param].md` + `static_paths`) |
+| Detail pages | one template each renders a focused page for every country / industry / category / source (`pages/**/[param].md` + `static_paths`) |
 
-**Components used:** `Counter`, `LineChart`, `BarChart`, `PieChart`, `TreemapChart`, `Table`
-(sortable, searchable, CSV-exportable, clickable rows), `Value`, `Grid`, `Dropdown`, `Search`,
-`SiteSearch`, and `Ask` (LLM commentary, via Mistral).
+![Leads dashboard — funnel, source bar, and Source × Stage heatmap](docs/screenshots/leads.png)
+
+**Components used:** `Counter`, `LineChart`, `BarChart`, `PieChart`, `TreemapChart`,
+`FunnelChart`, `HeatmapChart`, `CalendarHeatmap`, `PivotTable`, `Table` (sortable, searchable,
+CSV-exportable, clickable rows, optional `heatmap` shading), `Value`, `Grid`, `Dropdown`,
+`Search`, `SiteSearch`, and `Ask` (LLM commentary, via Mistral).
 
 ## How it works
 
@@ -96,3 +105,4 @@ Generated random data from [datablist/sample-csv-files](https://github.com/datab
 - **customers** — Index, Customer Id, First/Last Name, Company, City, Country, Phone ×2, Email, Subscription Date, Website
 - **organizations** — Index, Organization Id, Name, Website, Country, Description, Founded, Industry, Number of employees
 - **products** — Index, Name, Description, Brand, Category, Price, Currency, Stock, EAN, Color, Size, Availability, Internal ID
+- **leads** — Index, Account Id, Lead Owner, First/Last Name, Company, Phone ×2, Email ×2, Website, Source, Deal Stage, Notes

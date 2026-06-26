@@ -31,14 +31,18 @@ A focused view of every customer in **<Value data={country_summary} column="coun
 ## Sign-ups over time
 
 :::query name=country_signups connector=main
-SELECT date_trunc('month', "Subscription Date") AS month, count(*) AS signups
-FROM customers
-WHERE "Country" = '${country}'
-GROUP BY 1
-ORDER BY 1
+WITH monthly AS (
+  SELECT date_trunc('month', "Subscription Date") AS month_date, count(*) AS signups
+  FROM customers
+  WHERE "Country" = '${country}'
+  GROUP BY 1
+)
+SELECT strftime(month_date, '%b %Y') AS month, signups
+FROM monthly
+ORDER BY month_date
 :::
 
-<LineChart data={country_signups} x="month" y="signups" title="Sign-ups per month" date_format="MMM YYYY" format="number" />
+<LineChart data={country_signups} x="month" y="signups" title="Sign-ups per month" format="number" />
 
 ## Top cities & companies
 

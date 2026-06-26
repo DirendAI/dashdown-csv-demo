@@ -29,6 +29,7 @@ FILES: dict[str, tuple[str, str]] = {
     "customers.csv":     ("1IXQDp8Um3d-o7ysZLxkDyuvFj9gtlxqz", "customers (2,000,000 rows)"),
     "organizations.csv": ("1uaUCN5vAMVz73RgfJykJzzlIq2yQTlYB", "organizations (1,000,000 rows)"),
     "products.csv":      ("1u5t7wfkWDW4W2TYJDuh1m0pa-7E0_Sr3", "products (1,000,000 rows)"),
+    "leads.csv":         ("1mCFMwc_Y0nU8G99-AUznqqBvh6t2Kg8B", "leads (100,000 rows)"),
 }
 
 

@@ -4,4 +4,6 @@ UNION ALL
 SELECT 'Organizations' AS dataset, count(*) AS rows FROM organizations
 UNION ALL
 SELECT 'Products'      AS dataset, count(*) AS rows FROM products
+UNION ALL
+SELECT 'Leads'         AS dataset, count(*) AS rows FROM leads
 ORDER BY rows DESC

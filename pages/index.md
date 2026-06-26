@@ -7,7 +7,7 @@ icon: "🏠"
 
 # Datablist Explorer
 
-An interactive dashboard over the [Datablist sample CSV files](https://github.com/datablist/sample-csv-files) — **4,000,000 rows** across customers, organizations and products, queried live by an embedded **DuckDB**. The largest file alone is **2,000,000 customers / 333 MB of CSV**, yet every aggregation on this page returns in a fraction of a second. The [DuckDB Performance](/performance) page has the numbers.
+An interactive dashboard over the [Datablist sample CSV files](https://github.com/datablist/sample-csv-files) — **4.1 million rows** across customers, organizations, products and leads, queried live by an embedded **DuckDB**. The largest file alone is **2,000,000 customers / 333 MB of CSV**, yet every aggregation on this page returns in a fraction of a second. The [DuckDB Performance](/performance) page has the numbers.
 
 <SiteSearch placeholder="Search customers, organizations, products…" />
 
@@ -15,14 +15,14 @@ An interactive dashboard over the [Datablist sample CSV files](https://github.co
   <Counter data={overview.totals} column="customers" label="Customers" format="number" />
   <Counter data={overview.totals} column="organizations" label="Organizations" format="number" />
   <Counter data={overview.totals} column="products" label="Products" format="number" />
-  <Counter data={overview.totals} column="countries" label="Countries" format="number" />
+  <Counter data={overview.totals} column="leads" label="Leads" format="number" />
 </Grid>
 
 ## Customer growth
 
 Monthly sign-ups across the full 2 M-row customer table — a `GROUP BY month` over 333 MB of CSV.
 
-<LineChart data={customers.signups_by_month} x="month" y="signups" title="Customer sign-ups per month" date_format="MMM YYYY" format="number" />
+<LineChart data={customers.signups_by_month} x="month" y="signups" title="Customer sign-ups per month" format="number" />
 
 <Ask data={customers.signups_by_month} ask="In 2-3 sentences, summarize the customer sign-up trend across these months: the overall trajectory, the busiest month, and any slowdown toward the end." label="AI read-out" />
 
@@ -44,4 +44,4 @@ The 1 M-row product catalog, sized by how many SKUs sit in each of its 34 catego
 
 ---
 
-Dive into a dataset: [Customers](/customers) · [Organizations](/organizations) · [Products](/products) — or see how fast this all loads on the [DuckDB Performance](/performance) page.
+Dive into a dataset: [Customers](/customers) · [Organizations](/organizations) · [Products](/products) · [Leads](/leads) — or see how fast this all loads on the [DuckDB Performance](/performance) page.
